@@ -1,146 +1,580 @@
-# Antistasi Ultimate Extender Example
-This is an example of how you could extend Antistasi Ultimate with new maps and templates or overwrite existing ones.
-This is a fork of [A3AExtender](https://github.com/official-antistasi-community/A3AExtender) made by [Antistasi Official Community Arma 3](https://github.com/official-antistasi-community)
+# ASU_HKE_SW
+	Anti-Stasi Ultimate, House Kandosii Extention, Star Wars
 
-# Requirements
-  - Arma 3
-  - Arma 3 Tools
-    
-  Arma 3 and Arma 3 Tools need to be run once from steam.
+# Description
+	A Star Wars extention for Antustasi Ultimate by and for House Kandosii
 
-  ## Useful Things
+# Lore
+	This mod aims to add Antistasi-specific factions that follow the following lore:
 
-  - [Advanced Developer Tools](https://steamcommunity.com/sharedfiles/filedetails/?id=2369477168)
-  - https://paa.gruppe-adler.de/ (Image > PAA. If converting multiple files, use `ImageToPAA` included in Arma 3 Tools)
+		Late into the Galactic Civil War and after the defeat of the Emperor by Luke Skywalker, a number of Mandalorian colonies were annexed by Imperial remnant forces. Previously having renounced war in the name of the late Duchess Satine's ideals, the Mandalorians allowed the Empire to take control, offering no resistance. Initially, it was peaceful; the Imperials mostly kept to themselves, however they slowly began encroaching on the Mandalorian colonists.
 
-  - Ability to debug.
-  The ability to debug is acquired with experience. A good thing to remember is:
+		One by one, each settlement began to find an Imperial establishment in their town until eventually, the Imperials felt they were in a position to begin pillaging the planet of all of it's resources, including Mandalorian army surplus such as armor and weapons.
 
-  `"If you can't un-break the code you broke, it isn't code. It's a bunch of useless characters."` - Silence
+		Correlating with a similar series of events taking place on Mandalore and inspired by resistance fighters under Bo-Katan Kryze and Clan Bes'Agol who were taking up arms against the Imperial remnant, the colonists began to take up arms themselves. Starting with their civilian fatigues and only a few blaster rifles donated from the black market and Mandalorian underground movement, the colonists began to fight back as diplomacy and appeasment failed around them.
 
-# How to get started:
-- Do not use both methods at once. It overcomplicates things!
-### .ps1 Method
-- Run the `Install.ps1` script and follow the instructions on screen.
-- Run the `Build.ps1` script. This will create a folder in the root folder called build and compile your extension into it.
+		Complicating the matter was a New Republic counter-attack against the Imperial remnant on the planet. While this would normally be cause for celebration, it turned out that the New Republic was not there on behalf of the colonists. Failed treaty negotiations between Bo-Katan Kryze and New Republic diplomats resulted in the New Republic refusing to help Mandalore for fear that their warrior culture would turn on the New Republic, and New Republic military leaders believing that the Empire would prevail against the Mandalorians without New Republic aid did not help matters. As a result, the colonists decided to consider Rebel forces as hostile.
 
-### Visual Studio Code Method
-- This assumes you already have [VSCode](https://code.visualstudio.com/download) installed and set up. 
-> Yes, there is a difference between Visual Studio and Visual Studio Code. You should not be using Visual Studio for this unless you genuinely know and understand its limitations, and are fine with them. (It won't change the fact that you're wrong, however.)
+		While the colonists were fighting back, a number of rival insurgencies cropped up. The Mandalorian insurgencies of Death Watch and the Shadow Collective began to get involved with the Shadow Collective wanting to claim territory for their criminal enterprises, while Death Watch was ideologically driven and still looking to bring back the warrior way of the past. A bunch of clones also began to fight, mostly fighting to keep land for their own homes. Even a detachment of the CIS Remnant was deployed to the area, looking to establish a base of operations for an action of vengeance against Clan Bes'Agol's base on Krownest while the bulk of their forces were engaged with the Empire on Mandalore.
 
-- Download the [Arma Dev](https://marketplace.visualstudio.com/items?itemName=ole1986.arma-dev) extension.
-- Download the [Arma 3 - Open Last RPT](https://marketplace.visualstudio.com/items?itemName=bux578.vscode-openlastrpt) extension.
-> Optional, but will help immensely with debugging. You will need to do a lot of debugging. You are not 'that guy'.
-- Open the whole project in VSCode. 
+		It was at this point that a prominent mercenary and revolutionary group, House Kandosii, got involved in the fighting. Both as a result of their moral compass and the payments put forth by the Mandalorian Colonists, House Kandosii began sending both reinforcments and gear to the colonists.
 
-  - You can do this by right clicking the root folder and clicking "Open with Code". 
+# Notes
+	-This mod will partially serve as a sort of checklist as to what star wars assets Kandosii needs to work on vesus what we already have completed. Anything that is a "soft dependency" (using asssets from another mod for compositions) should eventually be able to be replaced by the House Kandosii Aux Mod
+	-Warfare and tactics are not consistent; as a result, factions should be built similarly with the idea of filling multiple roles according to their respective lore description. 
+	-Crates for the Galactic Empire should be partially filled with Mandalorian equipment to imply that they are pillaging the planet
+	-Mandalorian gear in the crates should be generic and not include customs
+	-Custom gear should be available from arms dealer
+	-Arms Dealer should have access to all KND Weapons and ammo
+	-Death Watch and Shadow Collective should be using varied aftermarket weapons so that they can be captured rather than just Mandalorian guns
+	-NO Jedi or Sith.
 
-- Your VSCode should generally look like this once opened:
-> Note: My file tree is on the right side, but will probably be on the left by default.
-![image](https://github.com/Westalgie/A3UExtender/assets/78276788/7bdd3cc3-c839-4a7e-b580-4bddc996eab5)
+# Faction Roles
+	-Rebels
+		-Mandalorians
+			-House Kandosii
+	-Occupier Options
+		-Galactic Empire
+		-Rebel Alliance/New Republic
+		-CIS Remnant
+	-Invader Options
+		-Galactic Empire
+		-Rebel Alliance/New Republic
+		-CIS Remnant
+		-Death Watch
+		-Shadow Collective
+	-Rival Options
+		-CIS Remnant
+		-Clone Rebellion
+		-Death Watch
+		-Shadow Collective
 
-- Press `CTRL+Shift+P` and type "Arma 3". Navigate to "Arma 3: Configure" and run it. This should take you to an `arma-dev.json` file.
-- Grab the example .json from [the Ultimate wiki](https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate/wiki/Developer-Documentation#vscode-stuff). Make sure to change things accordingly. Most importantly, make sure the `"clientDirs"` matches your `extension_name/addons/` folders. This should be something like:
-```
-  "clientDirs": [
-      "A3UE/addons/core",
-      "A3UE/addons/functions",
-      "A3UE/addons/hals",
-      "A3UE/addons/maps",
-      "A3UE/addons/templates",
-      "A3UE/addons/ultimate"
-  ],
-```
-> Be sure to fact check this as these may not always match.
-
-- You should now pretty much be ready to pack. Once again use `CTRL+Shift+P` and type "Arma 3". Navigate to "Arma 3: Build" and run it.
-
-  - You should now have a folder with the same name as the value used in the .json for `"buildPath"`. This should be `build` by default.
-  - If you do have the folder, you can now follow the rest of the steps below!
-
-## Applies to both methods:
-
-- DO NOT CHANGE ANYTHING IN THE `addons` DIRECTORY UNTIL YOU HAVE BUILT THE ADDON AND CONFIRMED IT WORKS. 
-
-  - This will save you the despair of going "why no work?!" after changing 20 files. 
-  
-  - A clean base is good to work off of, because you know exactly what you changed when you inevitably break something.
-  
-- Start the Arma 3 launcher and do the following:
-  1) Under `Mods` -> `...More` select `add watched folder...` then `add custom folder...`.
-      Navigate to your extensions root folder and select the newly created build folder.
-      If successful it will have added that folder in the list of watched folders and a green box would have shown
-      stating that a mod has been installed.
-
-  2) Load `Antistasi Ultimate - Mod` and the newly installed `A3 Antistasi Ultimate Extender example` mod.
-  3) Start the game and confirm that the new template is loaded by starting a local host session under multiplayer. Then start a game of antistasi and confirm that the
-      new and overwritten templates are there (these are the example templates provided with the extender).
-
-      Also confirm that the arms dealer is selling everything vanilla for free, and selling a free quadbike.
-
-      The new templates are `AAF` and `AAF_New`.
-
-  Assuming everything went well you are now ready to make your own modifications.
-  Remember to remove unused content and read thoroughly through the files while making any edits.
-  As a hint all content is added from the config.cpp files located within each of the addons so you can follow that down to the files that govern the different parts like templates and functions etc.
-
-
-# Example additions
-- Note: If dealing with file paths, always use the correct macros UNLESS you can't due to it being in another mod.
-
-  - Macros are essentially a function in how they work - these ones in particular append your parameter to a predefined path.
-
-    - The benefit of this is that you only have to change this path once (if you need to change it at all.)
-
-  - Some relevant macros for paths are `QPATHTOFOLDER`, `QCPATHTO`, etc.
-
-## Maps
-- Antistasi now supports 3rd party map porting.
-
-- There are two examples added for working with maps. Adding a new map and overwriting/applying additions for an existing map.
-
-  - In this examples there are also demonstrations of mission specific overwrites of `mapInfo` and `navGrid` data as well as global overwrite/addition.
-
-  - You will find all the information regarding this under `your extension mod/addons/maps`.
-
-  - Take care to study all the files in the addon to not miss crucial porting steps.
-
-## Templates
-- Antistasi now supports 3rd party template additions/overwrites.
-
-  - To add new templates or overwrite existing ones follow the demonstration given in `your extension mod/addons/templates/Templates/Templates.hpp`.
-
-  - Note that while you can add addon vehicle templates to Antistasi at this time, it should be noted that it is still a limited system and you shouldn't expect full functionality from them atm.
-
-  - Again it's important to read through all the files in the `templates` addon to not miss important steps.
-
-## Functionality
-- Antistasi now has events that you can listen to and extend existing functionality.
-  A list of all events and their parameters can be found in the in game config under: `A3A >> Events`.
-- In addition you can overwrite any of Antistasi's functions to add, change or remove functionality. This includes full systems (be aware that this is more complex and can break on updates).
-  To do so, simply add a function to the `A3A` and/or `A3U` and/or `A3UE` class of `CfgFunctions.hpp` under the addon functions (you can also replicate the config.cpp to allow this in any other addon).
-
-## Arms Dealer
-- Navigate to `addons` and read the `README.md` file.
-
-# Releasing your extension
-Now that you have added the content/functionality you wanted its time to release the extension.
-
-You should first make sure that any example content not being used is removed, you can do so either carefully by removing lines from the configs, or by removing an addon folder completely.
-  * **Note that you can not remove the `core` addon.**
-
-Next update the mod.cpp file to contain the correct information for you (for steam release you can delete the meta.cpp from the build folder afterwards).
-
-Now simply run the `Build` script in the root folder (Or the VSCode equivalent) to build it and use Arma 3 Tools for signing and publishing the extension.
-
-- *(Note: it will not sign it for you (unless using VSCode and a key is given in the .json), this needs to be done manually before publishing with `Arma 3 Tools` -> `DSUtils` & `Publisher`)*.
-
-You can also distribute it in other ways other than the steam workshop simply by sending the build output to the users.
-
-## Small disclaimer:
-
-When you want other Antistasi players to easily find your extension, give it a descriptive name including the abbreviation `A3UE` like for example `A3UE - My Awesome Antistasi Ultimate Extension`.
-
-## Need more advice?
-
-Read the [Developer Advice](https://github.com/Westalgie/A3UExtender/wiki/Developer-Advice) page.
+# To-Do List:
+	-FOBs, Outposts, and Cities
+		-Fortifications should be replaced with Sci-Fi equivalents where possible
+		-Mounted weapons may not have stand-ins available with current mod list
+	-Arms Dealer
+		-Weapons
+			-Rifles
+				-A180
+				-A280
+				-A300
+				-A474
+				-Cycler Rifle
+				-DH-17
+				-EL-16HFE
+				-JD-41 Massif
+				-JD-70 Rancor
+				-KiSteer 0830 Projectile Rifle
+				-LCR-115S
+				-M-45 Repeating Blaster
+				-MK Blaster Rifle
+				-RCC-1 Longblaster
+				-Relby V-10 Blaster Carbine
+				-Sapaan'Bev
+				-SB-2P
+				-T-14 Blaster Repeater
+			-Pistols
+				-A180
+				-A300
+				-DE-10
+				-DH-17
+				-DL-40
+				-DL-44
+				-E-851
+				-JD-69 Dalab
+				-Kaminoian Goodbye
+				-NN-14
+			-AT
+				-KND Mortar
+				-RPS-6
+				-RPS-4
+		-Helmets
+			-House Kandosii Customs
+			-Akior
+				-Regular
+				-Jaro
+				-Ral
+				-Bes'Agol
+			-Ancient
+			-Aranov
+				-Regular
+				-Jaro
+			-Armorer
+			-Auroch
+				-Regular
+				-Jaro
+			-Banshee
+				-Regular
+				-Ral
+			-Beroya
+				-Regular
+			-Dal'Verd
+				-Jaro
+				-Ral
+			-Dha'Wehrd
+				-Regular
+				-Jaro
+			-Djarin
+			-Farshee
+				-Regular
+				-Nurse
+			-Foreman
+			-Goth
+			-Grunt
+				-Regular
+				-Alpine
+				-Desert
+				-Ral
+				-Tenno
+				-Woodland
+			-Guardian
+			-Kaste
+			-Kov'Shukur
+				-Regular
+				-Jaro
+			-Kyrt'Saad
+			-Liege
+			-Matriarch
+				-Regular
+				-Surgeon
+			-Nite Owl
+				-Regular
+				-Woodland
+				-Punk
+			-Paz
+			-Pre
+			-Ramikad
+			-Rook
+				-Regular
+				-Jaro
+			-Sabine
+			-Saxon
+			-Shrike
+			-Wren
+				-Regular
+				-Jaro
+			-AJ^6 Cyborg Construct
+		-Uniforms
+			-House Kandosii Customs
+			-Akior
+				-Regular
+				-Jaro
+				-Ral
+			-Ancient Armor
+			-Aranov
+				-Regular
+				-Jaro
+			-Beroya
+				-Regular
+				-Alpine
+				-Desert
+				-Jaro
+				-Nurse
+				-Ral
+				-Tenno
+				-Woodland
+			-Dal'Verd
+				-Regular
+				-Dark
+				-Jaro
+				-Ral
+				-Surgeon
+				-Woodland
+			-Kov'Shukur
+				-Regular
+				-Jaro
+			-Ramikad
+		-Vests
+			-House Kandosii Customs
+			-Akior
+				-Stalker
+				-Hunter
+			-Aranov
+				-Regular
+				-Jaro
+				-Medium
+			-Beroya
+				-Belt
+				-Holster
+				-Holster Dual
+				-Holster Dual (Light)
+				-Holster Dual (Light, 1H)
+			-Dal'Verd
+				-Holster
+				-Holster (Light, Strapless)
+				-Holster Dual
+				-Holster Dual (Light)
+				-Holster Dual (Light, 1H)
+				-Holster Dual (Light, Strapless)
+			-Dha'Werd
+			-Invisible
+			-Kovshukur
+				-Regular
+				-Light
+				-Jaro
+			-Ramikad
+		-Backpacks
+			-House Kandosii Customs
+			-Captured Spec-Ops RTO Pack
+			-CTP-10
+			-CTP-7
+			-Hetikleyic'Bev
+			-IT-31 A.I.S.
+			-JD-77
+				-Regular
+				-LR
+			-JT-12
+				-Regular
+				-Alpine
+				-Desert
+				-Ral
+				-Woodland
+				-Uptuned
+				-LR
+				-Ral LR
+				-Uptuned LR
+			-JT-13
+				-Regular
+				-Uptuned
+				-LR
+				-Uptuned LR
+			-JT-20
+				-Regular
+				-Jaro
+				-Ral
+				-LR
+				-LR Ral
+				-LR Jaro
+			-Z-12
+				-Regular
+				-LR
+			-Z-4
+				-Regular
+				-LR
+			-Z-6
+				-Regular
+				-LR
+				-Red
+			-Folded MK-1 MRCB
+		-NVGs
+			-House Kandosii Customs
+			-Kandosii NVG Chip
+			-Akior Rangefinder
+			-Aranov Rangefinder
+				-Regular
+				-Down
+			-Auroch Rangefinder
+				-Regular
+				-Jaro
+			-Banshee Rangefinder
+				-Regular
+				-Ral
+			-Base Rangefinder
+				-Regular
+				-Ral
+			-Beroya Horns
+			-Beroya Rangefinder
+			-Dal'Verd Rangefinder
+				-Regular
+				-Jaro
+				-Ral
+			-Dalaab'Uliik
+			-Farshee Rangefinder
+			-Kov'Shukuur Rangefinder
+				-Regular
+				-Down
+			-Kyrt'saad Antenna
+			-Kyrt'saad Horns
+			-Kyrt'saad Rangefinder
+			-Matriarch Rangefinder
+			-Nya Rangefinder
+				-Regular
+				-Ral
+			-Nite Owl Rangefinder
+				-Regular
+				-Woodland
+			-Rook Rangefinder
+			-Sabine Rangefinder
+			-Shrike Rangefinder
+			-Wren Rangefinder
+				-Regular
+				-Jaro
+		-Explosives
+			-Breacher Placed Explosive
+			-Mini Bounding Mines
+			-Type A Planted Explosive
+			-Type B Planted Explosive
+			-Type C Planted Explosive
+			-Anti-Tank Mine
+		-The Basics
+			-Radios
+			-GPS Terminals
+		-Tools
+			-Sonar Device
+			-Chemical Detector
+			-Dead Man's Switch
+			-Defusal Kit
+			-Hostage Rebreather
+			-Mine Detector
+			-M57 Firing Device
+		-Medical
+			-Adenosine
+			-Advanced Medical Kit
+			-Bacta Pack
+			-Blood
+				-1000ml
+				-500ml
+				-250ml
+			-Coagulex
+				-Ampoule
+			-Cordrazine
+				-Ampoule
+				-Autoinjector
+			-Compressed Rapidfuse
+				-1000ml
+				-500ml
+				-250ml
+			-Defibrilator
+			-Deployable Individual Casualty Kit
+			-Deployable Medical Droid
+			-Epinephrine
+				-Autoinjector
+				-Ampoule
+			-Medical Staple
+			-Morphine
+				-Autoinjector
+				-Ampoule
+			-Speed Stim
+				-Autoinjector
+			-Spice
+			-Stim
+				-Autoinjector
+				-Ampoule
+			-Symoxin
+				-Autoinjector
+				-Ampoule
+	-Faction Configs
+		-House Kandosii
+			-Arsenal
+				-Weapons
+					-Unlimited Supply
+						-Westar-35 pistol
+							-Magazines
+						-Datapad
+							-Standard Chip
+					-Limited Supply
+						-A280
+							-Scopes
+							-Magazines
+						-Galaar-15
+							-Magazines
+				-Explosives
+					-Unlimited Supply
+						-M41 IED
+						-M41 IED (Buried)
+					-Limited Supply
+						-Type B Planted Explosive
+						-Type C Planted Explosive
+				-The Basics
+					-Unlimited Supply
+						-Binoculars
+						-Watches
+						-Maps
+						-Compass
+					-Limited Supply
+						-Radios
+				-Tools
+					-Unlimited Supply
+						-Camo Nets
+						-Emergency Flare
+						-Entrenching Tools
+						-KSF-1
+						-Map Tools
+						-Notepad
+						-Wire Cutters
+					-Limited Supply
+						-Sonar Device
+						-Chemical Detector
+						-Dead Man's Switch
+						-Defusal Kit
+						-Hostage Rebreather
+						-Mine Detector
+						-M57 Firing Device
+				-Medical
+					-Unlimited Supply
+						-Bandages
+						-Splints
+						-Torniquets
+					-Limited Supply
+						-Adenosine
+						-Bacta Pack
+						-Blood
+						-Defibrilator
+						-Epinephrine
+						-Morphine
+		-Galactic Empire
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+				-Tanks
+					-TX130 "Sabre"
+					-AT-ST "Chicken Walker"
+					-Firehawke
+			-Air Wing
+					-TIE Fighter
+					-TIE Bomber
+					-TIE Interceptor
+					-TIE Avenger		//not available
+					-TIE Defender		//not available
+					-LAAT/i
+					-LAAT/le
+			-Crates
+				-Weaponry
+					-Imperial weaponry
+						-E-11D
+						-E-22
+						-DLT-19
+						-T-21
+						-TL-50
+						-Z6 Rotary
+					-Mandalorian weaponry
+						-Amban Phase Pulse Rifle
+						-EE-2
+						-EE-3
+						-EE-3b
+						-EE-4
+						-Galaar-15
+						-RK-66 Vornskr
+						-Westar-34
+						-Westar 35
+						-Westar 55A Battle Rifle
+						-Westar 55A Carbine
+						-Westar 55A Sniper
+						-Westar 55A LMG
+					-Imperial AT options
+						-RPS-6
+						-RPS-4
+				-Ammo
+					-Imperial magazines
+					-Mandalorian magazines
+					-Thermal Detonators
+					-Smoke grenades
+					-Stun Grenades
+					-Chemlights
+					-Personal shields
+				-Gear
+					-Imperial
+						-Armor
+						-Helmets
+						-Backpacks
+						-NVGs
+					-Mandalorian
+						-Basic Armor
+						-Basic Helmets
+						-Basic Jetpacks
+						-Basic NVGs
+					-Radios
+					-Terminals
+						-GPS
+						-UAV
+						-Mine Detectors
+					-Tools
+						-Fuel Cans
+						-DC-17M conversion kits
+		-Rebel Alliance/New Republic
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+			-Air Wing
+			-Crates
+			-FOBs
+		-Clone Rebellion
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+			-Crates
+		-CIS Remnant
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+			-Air Wing
+			-Crates
+		-Death Watch
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+			-Air Wing
+			-Crates
+		-Shadow Collective
+			-Infantry
+				-Squad Leader
+				-Squad 2iC
+				-RTO
+				-Medic
+				-MANPAD Platform
+				-AT
+				-Engineer
+				-Sniper
+				-Sharpshooter
+				-Grenadier
+				-Autorifleman
+				-Rifleman
+			-Vehicles
+			-Air Wing
+			-Crates
