@@ -2,7 +2,7 @@
 	Anti-Stasi Ultimate, House Kandosii Extention, Star Wars
 
 # Description
-	A Star Wars extention for Antustasi Ultimate by and for House Kandosii
+	A Star Wars extention for Antistasi Ultimate by and for House Kandosii
 
 # Lore
 	This mod aims to add Antistasi-specific factions that follow the following lore:
